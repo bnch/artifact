@@ -107,7 +107,7 @@ func job(commitID string, repo Repository) {
 	}
 
 	buildDir := fmt.Sprintf("data/%d", build.ID)
-	err = os.MkdirAll(buildDir, 755)
+	err = os.MkdirAll(buildDir, 0755)
 	if err != nil {
 		fmt.Println("job terminated prematurely")
 		fmt.Println(err)
@@ -140,5 +140,5 @@ func job(commitID string, repo Repository) {
 	}
 
 	build.Status = statusBuilt
-	db.Update(&build)
+	db.Save(&build)
 }
