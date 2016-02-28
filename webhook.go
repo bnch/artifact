@@ -102,7 +102,7 @@ func job(commitID string, repo Repository) {
 		fmt.Println("job terminated prematurely")
 		fmt.Println(err)
 		build.Status = statusFailed
-		db.Update(&build)
+		db.Save(&build)
 		return
 	}
 
@@ -112,7 +112,7 @@ func job(commitID string, repo Repository) {
 		fmt.Println("job terminated prematurely")
 		fmt.Println(err)
 		build.Status = statusFailed
-		db.Update(&build)
+		db.Save(&build)
 		return
 	}
 
@@ -133,7 +133,7 @@ func job(commitID string, repo Repository) {
 				fmt.Println("job terminated prematurely")
 				fmt.Println(err)
 				build.Status = statusFailed
-				db.Update(&build)
+				db.Save(&build)
 				return
 			}
 		}
