@@ -123,7 +123,7 @@ func job(commitID string, repo Repository) {
 			if goos == "windows" {
 				ext = ".exe"
 			}
-			c := exec.Command("go", "build", "-o", buildDir+"/"+goos+"_"+arch+ext)
+			c := exec.Command("go", "build", "-o", buildDir+"/"+goos+"_"+arch+ext, repoNameForGoGet)
 			c.Env = append(os.Environ(),
 				"GOOS="+goos,
 				"GOARCH="+arch,
