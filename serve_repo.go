@@ -45,6 +45,8 @@ func serveRepo(c *gin.Context) {
 	endStr := fmt.Sprintf(`<h1>%s/%s</h1>
 <pre>builds: %d
 
+<b>BUILDS ARE SORTED FROM THE MOST RECENT TO THE LEAST RECENT.</b>
+
 %s</pre>`, c.Param("user"), c.Param("reponame"), len(builds), retStr)
 
 	c.Data(200, "text/html; charset=UTF-8", []byte(endStr))
